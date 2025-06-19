@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feira do rolo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <!-- logo do topo / banner -->
+    <header>
+        <h1><img src="./imagens/feira do rolo logo pequena.png" alt=""></h1>
+    </header>
+
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown()">Menu</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#" onclick="showSection('consumer-registration')">Cadastro de Consumidor</a>
+                <a href="#" onclick="showSection('seller-registration')">Cadastro de Vendedor</a>
+                <a href="#" onclick="showSection('product-management')">Cadastro de Produto</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="consumer-registration">
+             <!-- cadastro do consumidor -->
+            <h2>Cadastro de Consumidor</h2>
+            <form id="consumer-form">
+                <div class="form-group">
+                    <label for="consumer-name">Nome:</label>
+                    <input type="text" id="consumer-name" name="consumer-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="consumer-cpf">CPF/CNPJ:</label>
+                    <input type="text" id="consumer-cpf" name="consumer-cpf" required>
+                </div>
+                <div class="form-group">
+                    <label for="consumer-address">Endereço:</label>
+                    <input type="text" id="consumer-address" name="consumer-address" required>
+                </div>
+                <div class="form-group">
+                    <label for="consumer-phone">Telefone:</label>
+                    <input type="tel" id="consumer-phone" name="consumer-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="consumer-email">E-mail:</label>
+                    <input type="email" id="consumer-email" name="consumer-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="consumer-password">Senha:</label>
+                    <input type="password" id="consumer-password" name="consumer-password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Cadastrar Consumidor</button>
+                </div>
+            </form>
+        </section>
+
+         <!-- Cadastro de vendedor -->
+        <section id="seller-registration">
+            <h2>Cadastro de Vendedor</h2>
+            <form id="seller-form">
+                <div class="form-group">
+                    <label for="seller-name">Nome:</label>
+                    <input type="text" id="seller-name" name="seller-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="seller-cpf">CPF/CNPJ:</label>
+                    <input type="text" id="seller-cpf" name="seller-cpf" required>
+                </div>
+                <div class="form-group">
+                    <label for="seller-address">Endereço:</label>
+                    <input type="text" id="seller-address" name="seller-address" required>
+                </div>
+                <div class="form-group">
+                    <label for="seller-phone">Telefone:</label>
+                    <input type="tel" id="seller-phone" name="seller-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="seller-email">E-mail:</label>
+                    <input type="email" id="seller-email" name="seller-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="seller-password">Senha:</label>
+                    <input type="password" id="seller-password" name="seller-password" required>
+                </div>
+                <h3>Dados para Depósito</h3>
+                <div class="form-group">
+                    <label for="bank-name">Banco:</label>
+                    <input type="text" id="bank-name" name="bank-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="agency-number">Agência:</label>
+                    <input type="text" id="agency-number" name="agency-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="account-number">Conta:</label>
+                    <input type="text" id="account-number" name="account-number" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Cadastrar Vendedor</button>
+                </div>
+            </form>
+        </section>
+
+         <!-- Cadastro dos produtos e botão para upload da imagem -->
+        <section id="product-management">
+            <h2>Cadastro de Produto</h2>
+            <form id="product-form">
+                <div class="form-group">
+                    <label for="product-photo">Foto do Produto:</label>
+                    <label for="imageUpload" class="custom-file-upload">
+                    </label>
+                    <input type="file" id="imageUpload" name="image" accept="image/*">
+                    <p id="file-name">Nenhum arquivo escolhido</p>
+                    <img id="uploaded-image" src="#" alt="Pré-visualização da Imagem" style="max-width: 100%; max-height: 200px; margin-top: 20px;
+                    border: 1px solid #ddd; border-radius: 5px; display: none;">
+                </div>
+                <div class="form-group">
+                    <label for="product-name">Nome do Produto:</label>
+                    <input type="text" id="product-name" name="product-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Descrição:</label>
+                    <textarea id="product-description" name="product-description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Preço:</label>
+                    <input type="number" id="product-price" name="product-price" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="delivery-time">Prazo de Entrega (Dias):</label>
+                    <input type="text" id="delivery-time" name="delivery-time">
+                </div>
+                <div class="form-group">
+                    <button type="submit">Adicionar Produto</button>
+                    <button type="button" onclick="clearProductForm()">Limpar Formulário</button>
+                </div>
+            </form>
+
+            <hr>
+
+            <!-- Produtos disponíveis já inserido no sistema com fotos -->
+            <h2>Produtos Disponíveis</h2>
+            <div class="product-grid" id="product-list">
+                <div class="product-item">
+                    <img src="./imagens/bebe reborn.png" alt="Boneco reborn mini"> 
+                    <h3>Boneco Bebe Reborn Baby Mini</h3>
+                    <p>Ótima qualidade e ultra realismo.</p>
+                    <p class="price">R$ 349,90</p>
+                    <p>Prazo: 7 dias.</p>
+                    <div class="actions">
+                        <button onclick="editProduct(this)">Alterar</button>
+                        <button class="delete" onclick="deleteProduct(this)">Excluir</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="./imagens/cesta chocolate.jfif" alt="Cesta de chocolate">
+                    <h3>Cesta de Chocolate</h3>
+                    <p>Diversos chocolates maravilhosos para presente.</p>
+                    <p class="price">R$ 229,90</p>
+                    <p>Prazo: 1 dia.</p>
+                    <div class="actions">
+                        <button onclick="editProduct(this)">Alterar</button>
+                        <button class="delete" onclick="deleteProduct(this)">Excluir</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="./imagens/placa mae b550.jpg" alt="Placa mãe">
+                    <h3>Placa mãe MSI MPG AMD B550 Gaming Plus Socket AM4 ATX DDR4-SDRAM</h3>
+                    <p>Produto highend de alta performace.</p>
+                    <p class="price">R$1.260,00</p>
+                    <p>Prazo: 3 dias.</p>
+                    <div class="actions">
+                        <button onclick="editProduct(this)">Alterar</button>
+                        <button class="delete" onclick="deleteProduct(this)">Excluir</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="./imagens/kit coifa e coxim fusion.png" alt="Kit coifa e coxim">
+                    <h3>Kit Coxim Batente Dianteiro Ford Fusion 2013 2014 2015 2016</h3>
+                    <p>Marca Axios.</p>
+                    <p class="price">R$1.139,99</p>
+                    <p>Prazo: 7 dias.</p>
+                    <div class="actions">
+                        <button onclick="editProduct(this)">Alterar</button>
+                        <button class="delete" onclick="deleteProduct(this)">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
